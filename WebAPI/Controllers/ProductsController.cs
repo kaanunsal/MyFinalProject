@@ -31,13 +31,14 @@ namespace WebAPI.Controllers
             //Swagger
             //Dependency chain --
             var result = _productService.GetAll();
-            if(result.Success)
+            if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
 
         }
+
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
@@ -50,15 +51,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-            [HttpPost("add")]
+        [HttpPost("add")]
         public IActionResult Add(Product product)
         {
             var result = _productService.Add(product);
-            if(result.Success)
+            if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
-        }       
+        }
+
+
     }
 }
